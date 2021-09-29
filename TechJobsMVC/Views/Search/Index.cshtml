@@ -24,10 +24,39 @@
         <input type="submit" value="Search" />
     </form>
 
-    <hr />
 
-    @{
-        //TODO #4: Loop over the search results to display all job fields.
+
+    @{ //TODO #4: Loop over the search results to display all job fields.
+
+
     }
 
+<table class="job-listing">
+    <tr>
+        <th scope="col">Jobs matching your search</th>
+    </tr>
+    @{
+        List<Job> jobs = ViewBag.jobs;
+        if (ViewBag.jobs != null)
+        {
+            foreach (var job in jobs)
+            {
+
+                <tr>
+                        <td>
+                            ID: @job.Id <br />
+                            Name: @job.Name <br />
+                            Employer: @job.Employer <br />
+                            Location: @job.Location <br />
+                            Position Type: @job.PositionType <br />
+                            Skill: @job.CoreCompetency
+                        </td>
+                </tr>
+            }
+        }
+
+    }
+
+
+</table>
 </div>
